@@ -12,11 +12,11 @@ const Home = () => {
     marginLeft: "10px",
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const startRegister = () => {
-    navigate ('/register')
-  }
+    navigate("/authenticate");
+  };
 
   return (
     <div className={styles.cardWrapper}>
@@ -27,17 +27,17 @@ const Home = () => {
           sure nothing breaks
         </p>
         <div>
-          <Button onClick={startRegister} text="Get your username" />
+          <Button onClick={startRegister} text="Let's Go" />
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
-          <Link style={signInLinkStyle} to="/login">
+          <Link style={signInLinkStyle} to="/authenticate">
             Signin
           </Link>
         </div>
       </Card>
     </div>
   );
-};
+}
+export default Home
 
-export default Home;

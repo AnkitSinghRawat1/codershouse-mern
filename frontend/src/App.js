@@ -1,9 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-import Home from "./Pages/Home/Home";
-import Login from "./Pages/Login/Login";
-import Register from "./Pages/Register/Register";
 import Navigation from "./Shared/Navigation/Navigation";
+import GuestRoute from './utility/ProtectedRoutes/GuestRoute'
+import SemiProtectedRoutes from "./utility/ProtectedRoutes/SemiProtectedRoutes";
+import ProtectedRoute from './utility/ProtectedRoutes/ProtectedRoute'
+import Home from './Pages/Home/Home'
+import Activate from './Pages/Activate/Activate'
+import Authenticate from './Pages/Authenticate/Authenticate'
+import Rooms from './Pages/Rooms/Rooms'
+import "./App.css";
 
 function App() {
   return (
@@ -12,8 +16,15 @@ function App() {
         <Navigation />
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/login" element={<Login />}></Route>
-          <Route path='/register' element={<Register />}></Route>
+          <Route path="/" element={<GuestRoute />}>
+            <Route path="/authenticate" element={<Authenticate />} />
+          </Route>
+          <Route path="/activate" element={<SemiProtectedRoutes />}>
+            <Route path="/activate" element={<Activate />} />
+          </Route>
+          <Route path="/rooms" element={<ProtectedRoute />}>
+            <Route path="/rooms" element={<Rooms />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
