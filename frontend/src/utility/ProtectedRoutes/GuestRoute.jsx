@@ -1,11 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 
-const isAuth = false;
-
 const GuestRoute = () => {
+
+  const {isAuth} = useSelector((state) => state.auth)
   return (
-    !isAuth ? <Outlet />: <Navigate to='/rooms' />
+    !isAuth ? <Outlet />: <Navigate to='/activate' />
   )
 }
 

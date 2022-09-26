@@ -1,12 +1,17 @@
-import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import React from "react";
+import { useSelector } from "react-redux";
+import { Navigate, Outlet } from "react-router-dom";
 
-const isAuth = true
-const userActivated = false
 const SemiProtectedRoutes = () => {
-  return (
-    !isAuth ? <Navigate to='/' />  : isAuth && !userActivated ? <Outlet /> : <Navigate to='/activateThis' />
-  )
-}
+  const {isAuth, user} = useSelector((state) => state.auth);
+  console.log(isAuth, user.activated)
+  return !isAuth ? (
+    <Navigate to="/" />
+  ) : isAuth && !user.activated ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/rooms" />
+  );
+};
 
-export default SemiProtectedRoutes
+export default SemiProtectedRoutes;
