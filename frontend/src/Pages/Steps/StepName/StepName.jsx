@@ -1,13 +1,38 @@
-import React from "react";
-import styles from "./StepName.module.css";
-
+import React, { useState } from 'react';
+import Card from '../../../components/Shared/Card/Card';
+import Button from '../../../components/Shared/Button/Button';
+import TextInput from '../../../components/Shared/TextInput/TextInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { setName } from '../../../store/activateSlice';
+import styles from './StepName.module.css';
 const StepName = ({ onNext }) => {
-  return (
-    <div>
-      StepName
-      <button onClick={onNext}>Next</button>
-    </div>
-  );
+    const { name } = useSelector((state) => state.activate);
+    const dispatch = useDispatch();
+    const [fullname, setFullname] = useState(name);
+
+    function nextStep() {
+        if (!fullname) {
+            return;
+        }
+        dispatch(setName(fullname));
+        onNext();
+    }
+    return (
+        <>
+            <Card title="What’s your full name?" icon="goggle-emoji">
+                <TextInput
+                    value={fullname}
+                    onChange={(e) => setFullname(e.target.value)}
+                />
+                <p className={styles.paragraph}>
+                    People use real names at codershouse :) !
+                </p>
+                <div>
+                    <Button onClick={nextStep} text="Next" />
+                </div>
+            </Card>
+        </>
+    );
 };
 
 export default StepName;

@@ -1,8 +1,8 @@
 import React from "react";
-import Card from "../../Shared/Navigation/Card/Card";
+import Card from "../../components/Shared/Card/Card";
 import styles from "./Home.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../../Shared/Button/Button";
+import Button from "../../components/Shared/Button/Button";
 
 const Home = () => {
   const signInLinkStyle = {

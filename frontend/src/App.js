@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navigation from "./Shared/Navigation/Navigation";
+import Navigation from "./components/Shared/Navigation/Navigation";
 import GuestRoute from './utility/ProtectedRoutes/GuestRoute'
 import SemiProtectedRoutes from "./utility/ProtectedRoutes/SemiProtectedRoutes";
 import ProtectedRoute from './utility/ProtectedRoutes/ProtectedRoute'

@@ -4,7 +4,6 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const SemiProtectedRoutes = () => {
   const {isAuth, user} = useSelector((state) => state.auth);
-  console.log(isAuth, user.activated)
   return !isAuth ? (
     <Navigate to="/" />
   ) : isAuth && !user.activated ? (

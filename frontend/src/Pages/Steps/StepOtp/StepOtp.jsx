@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { verifyOtp } from "../../../http";
-import Button from "../../../Shared/Button/Button";
-import Card from "../../../Shared/Navigation/Card/Card";
-import TextInput from "../../../Shared/TextInput/TextInput";
+import Button from "../../../components/Shared/Button/Button";
+import Card from "../../../components/Shared/Card/Card";
+import TextInput from "../../../components/Shared/TextInput/TextInput";
 import { setAuth } from "../../../store/authSlice";
 import styles from "./StepOtp.module.css";
 
