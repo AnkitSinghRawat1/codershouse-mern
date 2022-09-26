@@ -1,16 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Shared/Navigation/Navigation";
-import GuestRoute from './utility/ProtectedRoutes/GuestRoute'
+import GuestRoute from "./utility/ProtectedRoutes/GuestRoute";
 import SemiProtectedRoutes from "./utility/ProtectedRoutes/SemiProtectedRoutes";
-import ProtectedRoute from './utility/ProtectedRoutes/ProtectedRoute'
-import Home from './Pages/Home/Home'
-import Activate from './Pages/Activate/Activate'
-import Authenticate from './Pages/Authenticate/Authenticate'
-import Rooms from './Pages/Rooms/Rooms'
+import ProtectedRoute from "./utility/ProtectedRoutes/ProtectedRoute";
+import Home from "./Pages/Home/Home";
+import Activate from "./Pages/Activate/Activate";
+import Authenticate from "./Pages/Authenticate/Authenticate";
+import Rooms from "./Pages/Rooms/Rooms";
 import "./App.css";
+import { useLoadingWithRefresh } from "./hooks/useLoadingWithRefresh";
 
 function App() {
-  return (
+  // call refresh endpoint
+  const { loading } = useLoadingWithRefresh();
+  return loading ? (
+    "Loading..."
+  ) : (
     <div className="App">
       <BrowserRouter>
         <Navigation />
