@@ -25,6 +25,7 @@ class AuthController {
       res.json({
         hash: `${hash}.${expires}`,
         phone,
+        otp
       });
     } catch (err) {
       console.log(err);
@@ -136,8 +137,10 @@ class AuthController {
 
   async logout(req, res) {
     const { refreshToken } = req.cookies;
+
     // delete refresh token from db
     await tokenService.removeToken(refreshToken);
+
     // delete cookies
     res.clearCookie("refreshToken");
     res.clearCookie("accessToken");

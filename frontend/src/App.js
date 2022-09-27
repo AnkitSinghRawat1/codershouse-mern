@@ -9,12 +9,13 @@ import Authenticate from "./Pages/Authenticate/Authenticate";
 import Rooms from "./Pages/Rooms/Rooms";
 import "./App.css";
 import { useLoadingWithRefresh } from "./hooks/useLoadingWithRefresh";
+import Loader from "./components/Shared/Loader/Loader";
 
 function App() {
   // call refresh endpoint
   const { loading } = useLoadingWithRefresh();
   return loading ? (
-    "Loading..."
+    <Loader message='Loading please wait'/>
   ) : (
     <div className="App">
       <BrowserRouter>

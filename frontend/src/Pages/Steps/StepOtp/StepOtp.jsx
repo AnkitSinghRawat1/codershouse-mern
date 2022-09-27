@@ -10,12 +10,13 @@ import styles from "./StepOtp.module.css";
 const StepOtp = () => {
   const [otp, setOtp] = useState();
   const { phone, hash } = useSelector((state) => state.auth.otp);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const submit = async () => {
+    if (!otp || !hash || !phone) return;
     try {
       const { data } = await verifyOtp({ otp, phone: phone, hash: hash });
-      dispatch(setAuth(data))
+      dispatch(setAuth(data));
     } catch (error) {
       console.log(error);
     }

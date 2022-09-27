@@ -9,12 +9,17 @@ import styles from "../StepPhoneEmail.module.css";
 
 const Phone = ({ onNext }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const submit = async () => {
-    const {data} = await sendOtp({phone: phoneNumber})
-    console.log(data);
-    dispatch(setOtp({phone: data.phone , hash: data.hash}))
+
+    if(!phoneNumber) return
+
+    // Api calling to send Otp
+    const { data } = await sendOtp({ phone: phoneNumber });
+    
+    // store phone and hash 
+    dispatch(setOtp({ phone: data.phone, hash: data.hash }));
 
     onNext();
   };

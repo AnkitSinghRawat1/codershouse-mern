@@ -17,7 +17,6 @@ const Authenticate = () => {
 
   return (
     <div>
-      Authenticate
       <Step onNext={onNext} />
     </div>
   );
