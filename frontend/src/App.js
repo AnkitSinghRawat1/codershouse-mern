@@ -10,6 +10,7 @@ import Rooms from "./Pages/Rooms/Rooms";
 import "./App.css";
 import { useLoadingWithRefresh } from "./hooks/useLoadingWithRefresh";
 import Loader from "./components/Shared/Loader/Loader";
+import Room from "./Pages/Room/Room";
 
 function App() {
   // call refresh endpoint
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/rooms" element={<ProtectedRoute />}>
             <Route path="/rooms" element={<Rooms />} />
+          </Route>
+          <Route path="/rooms/:id" element={<ProtectedRoute />}>
+            <Route path="/rooms/:id" element={<Room />} />
           </Route>
         </Routes>
       </BrowserRouter>

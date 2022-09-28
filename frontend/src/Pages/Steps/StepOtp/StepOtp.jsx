@@ -8,7 +8,7 @@ import { setAuth } from "../../../store/authSlice";
 import styles from "./StepOtp.module.css";
 
 const StepOtp = () => {
-  const [otp, setOtp] = useState();
+  const [otp, setOtp] = useState('');
   const { phone, hash } = useSelector((state) => state.auth.otp);
   const dispatch = useDispatch();
 
