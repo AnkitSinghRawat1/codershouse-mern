@@ -7,6 +7,7 @@ const router = require("./routes");
 const app = express();
 
 app.use(cookieParser())
+
 const corsOption = {
   credentials: true,
   origin: ['http://localhost:3000']

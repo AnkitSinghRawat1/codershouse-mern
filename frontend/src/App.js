@@ -32,8 +32,8 @@ function App() {
           <Route path="/rooms" element={<ProtectedRoute />}>
             <Route path="/rooms" element={<Rooms />} />
           </Route>
-          <Route path="/rooms/:id" element={<ProtectedRoute />}>
-            <Route path="/rooms/:id" element={<Room />} />
+          <Route path="/room/:id" element={<ProtectedRoute />}>
+            <Route path="/room/:id" element={<Room />} />
           </Route>
         </Routes>
       </BrowserRouter>
